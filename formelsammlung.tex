@@ -22,22 +22,36 @@
 \begin{multicols}{3}
 
 \noindent
-Diese Formelsammlung orientiert sich an dem Prüfungsfragenkatalog der BAKOM;
+Diese Formelsammlung orientiert sich an dem Prüfungsfragenkatalog des BAKOM;
 die Nummerierung entspricht den Kapiteln im Katalog.
 Es werden die für die Prüfung erforderlichen Formeln aufgeführt.
 
 \section{Elektrizität}
+
+\noindent
+\fbox{\parbox[b][][t]{\columnwidth}{
+	$\rho$: Spezifischer Widerstand $[\Omega mm\ m^{-1}]$\\
+	$U, I, R, P$: Spannung, Strom, Widerstand, Leistung	 }}
+
+\paragraph{Leitungswiderstand}
+
+$$ R = \frac{\rho \cdot l}{A} $$
+
 \paragraph{Ohmsches Gesetz}
 
-$$ I = \frac{U}{R} $$
-$$ R = \frac{U}{I} $$
-$$ U= R \cdot I = \sqrt{P\cdot R} $$
+$$ I = \frac{U}{R} = \frac{P}{U} = \sqrt{P \over R} $$
+$$ R = \frac{U}{I} = \frac{U^2}{P} = \frac{P}{I^2} $$
+$$ U= R \cdot I = \sqrt{P\cdot R} = \frac{P}{I} $$
 
-\paragraph{Kapazitiver Blindwiderstand}
+\paragraph{Wechselstrom} Wechselstromgrößen werden mit Kleinbuchstaben bezeichnet.
+
+$$ u_{SS} = \sqrt{2}\cdot u_{eff.} $$
+
+\paragraph{Kapazitiver Blindwiderstand $X_C$}
 
 $$ X_C =  \frac{1}{2 \pi f C} \Longleftrightarrow C =  \frac{1}{2 \pi f X_C} $$
 
-\paragraph{Induktiver Blindwiderstand}
+\paragraph{Induktiver Blindwiderstand $L_C$}
 
 $$ X_L =  2 \pi f L \Longleftrightarrow L =  \frac{X_L}{2 \pi f} $$
 
@@ -56,7 +70,9 @@ $$ L = \frac{U_L \cdot \Delta t}{\Delta I} $$
 
 \paragraph{Transformator}
 
-$$ \widehat{u} = \frac{U_1}{U_2} = \sqrt{\frac{R_1}{R_2}} $$
+$$ \widehat{u} = \frac{U_1}{U_2} = \frac{I_2}{I_1} = \sqrt{\frac{R_1}{R_2}} = \sqrt{\frac{Z_1}{Z_2}}  \Longleftrightarrow Z_1 = Z_2 \cdot \widehat{u}^2 $$
+
+Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 
 \section{Schaltungen}
 \paragraph{Schwingkreis}
