@@ -44,20 +44,22 @@ $$ R = \frac{U}{I} = \frac{U^2}{P} = \frac{P}{I^2} $$
 $$ U= R \cdot I = \sqrt{P\cdot R} = \frac{P}{I} $$
 
 \paragraph{Wechselstrom} Wechselstromgrößen werden mit Kleinbuchstaben bezeichnet.
-
 $$ u_{SS} = \sqrt{2}\cdot u_{eff.} $$
 
 \paragraph{Kapazitiver Blindwiderstand $X_C$}
-
 $$ X_C =  \frac{1}{2 \pi f C} \Longleftrightarrow C =  \frac{1}{2 \pi f X_C} $$
 
 \paragraph{Induktiver Blindwiderstand $X_L$}
-
 $$ X_L =  2 \pi f L \Longleftrightarrow L =  \frac{X_L}{2 \pi f} $$
 
 \section{Bauteile}
 
 \paragraph{Spule}
+
+\fbox{\parbox[b][][t]{\columnwidth}{
+	$\tau$: Zeitkonstante \\
+	$L$: Induktivität}}
+
 $$ \tau = \frac{L}{R} $$
 $$ L = \frac{U_L \cdot \Delta t}{\Delta I} $$
 
@@ -68,9 +70,20 @@ $$ L = \frac{U_L \cdot \Delta t}{\Delta I} $$
 
 \paragraph{Kondensator}
 
-\paragraph{Transformator}
+\paragraph{Transformator} zur Spannungstransformation, Impedanzanpassung
 
-$$ \widehat{u} = \frac{U_1}{U_2} = \frac{I_2}{I_1} = \sqrt{\frac{R_1}{R_2}} = \sqrt{\frac{Z_1}{Z_2}}  \Longleftrightarrow Z_1 = Z_2 \cdot \widehat{u}^2 $$
+\noindent
+\fbox{\parbox[b][][t]{\columnwidth}{
+	$N$: Windungszahl \\
+	$\widehat u$: Übersetzungsverhältnis}}
+
+\begin{Figure}
+  \begin{circuitikz}
+	\draw		(0,0) node[transformer core] (T) {}		(T.A1) node[anchor=east] {A1}		(T.A2) node[anchor=east] {A2}		(T.B1) node[anchor=west] {B1}		(T.B2) node[anchor=west] {B2}		(T.base) node{K};
+  \end{circuitikz}
+\end{Figure}
+	
+$$ \widehat{u} = \frac{N_1}{N_2} = \frac{U_1}{U_2} = \frac{I_2}{I_1} = \sqrt{\frac{R_1}{R_2}} = \sqrt{\frac{Z_1}{Z_2}}  \Longleftrightarrow Z_1 = Z_2 \cdot \widehat{u}^2 $$
 
 Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 
@@ -94,6 +107,8 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
    \captionof{figure}{R-L-C Parallel}
 \end{Figure}
 
+$$ Z = \sqrt{R^2 + (X_L-X_C)^2} $$
+
 \begin{Figure}
  \centering
     \begin{circuitikz}
@@ -108,9 +123,7 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 \end{Figure}
 
 
-\paragraph{Schwingkreis}
-
-Etwas Text
+\paragraph{Schwingkreis} Resonanzfrequenz
 
 \begin{Figure}
  \centering
@@ -128,19 +141,15 @@ Etwas Text
    \captionof{figure}{Schwingkreis}
 \end{Figure}
 
-Noch Text
-
-\paragraph{Thomsonsche Schwingungsformel}
+Resonanzfrequenz
 $$ f = \frac{1}{2 \pi \sqrt{L C}} $$
 
-\begin{equation}
-	b = \frac{f_{res}}{Q} = \frac{R_v}{2 \pi L}
-\end{equation}
+Bandbreite
+$$ b = \frac{f_{res}}{Q} = \frac{R_v}{2 \pi L} $$
 
-\paragraph{Schwingkreisgüte}
+Schwingkreisgüte
 
 $$ Q = \frac{f_{res}}{b} = \frac{f_o + f_u}{2 (f_o-f_u} = \frac{1}{d} $$
-
 $$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_V} = R_p \cdot \sqrt{C\over L} $$
 
 \noindent
@@ -150,18 +159,23 @@ $$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_V} = R_p \cdot \
 
 \paragraph{Transistor} Als Wechselstromverstärker
 
+Spannungsverstärkung
+$$ \beta = \frac{I_C}{I_B} $$
+$$ R_C = \frac{U_B - U_{CE} - U_{RE}}{I_C} $$
+$$ R_1 = \frac{U_B - U_{BE} - U_{RE}}{I_q + I_B} $$
+$$ R_2 = \frac{U_{BE} + U_{RE}}{I_q} $$
+
 \begin{Figure}
  \centering
   \begin{circuitikz}
    \ctikzset{voltage/distance from node=.2}
    \ctikzset{voltage/distance from line=.02}
    \ctikzset{voltage/bump b/.initial=.1} % Straight arrows
-
-   \draw (3,3) node[npn](npn1) {}
+   \draw (4,3) node[npn](npn1) {}
     (npn1.base) node[anchor=east,yshift=2mm] {}
     (npn1.collector) node[anchor=south,xshift=2mm] {}
     (npn1.emitter) node[anchor=north,xshift=2mm] {};
-   \draw (npn1.collector) to[R=$R_C$] (3,6);
+   \draw (npn1.collector) to[R=$R_C$,i<=$I_C$,red] (4,6);
    \draw (0,0)
     to[short, o-] (1,0)
     to[R=$R_2$] (1,3)
@@ -169,24 +183,25 @@ $$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_V} = R_p \cdot \
    \draw (0,3)
     to[C=$C_1$,o-*] (1,3);
    \draw (1,0)
-    to[short,*-*] (3,0)
+    to[short,*-*] (4,0)
     to[R=$R_E$] (npn1.emitter)
-    to[short,*-] (4,2.2)
-    to[C=$C_E$] (4,0)
-    to[short,*-*] (3,0)
-    to[short,-o] (5,0);
+    to[short,*-] (5,2.2)
+    to[C=$C_E$] (5,0)
+    to[short,*-*] (4,0)
+    to[short,-o] (6,0);
    \draw (1,3)
     to[R=$R_2$] (1,6)
-    to[short,-*] (3,6)
-    to[short,-o] (5,6);
+    to[short,-*] (4,6)
+    to[short,-o] (6,6);
    % Voltage Arrows
-   \draw [blue] (5,6) to[open,v_>=$U_B$] (5,0);
-   \draw [blue] (2,3) to[open,v_>=$U_{BC}$,xshift=2mm] (2,2);
-   \draw [blue] (2,2) to[open,v_>=$U_{RE}$,xshift=2mm] (2,0);
+   \draw [blue] (6,6) to[open,v^>=$U_B$] (6,0);
+   \draw [blue] (3,3) to[open,v_>=$U_{BE}$] (3,1.5);
+   \draw [blue] (3,1.5) to[open,v_>=$U_{RE}$] (3,0);
+   \draw [blue] (5,4) to[open,v^>=$U_{CE}$,xshift=-2mm] (5,2);
     % Circled Transistor:
-    \draw ($(npn1)-(0.18,0)$) circle [radius=16pt];
+    \draw [thick] ($(npn1)-(0.16,0)$) circle [radius=16pt];
   \end{circuitikz}
-  \captionof{figure}{NPN-Transistor}
+  \captionof{figure}{NPN-Emitterschaltung}
 \end{Figure}
 
 
