@@ -15,7 +15,7 @@
   {\par\medskip\noindent\minipage{\linewidth}}
   {\endminipage\par\medskip}
 
-\author{coltz}
+\author{kkroesch}
 \title{Formelsammlung Digitaltechnik}
 \begin{document}
 \setlength{\columnsep}{1cm}
@@ -30,7 +30,7 @@ Es werden die für die Prüfung erforderlichen Formeln aufgeführt.
 
 \noindent
 \fbox{\parbox[b][][t]{\columnwidth}{
-	$\rho$: Spezifischer Widerstand $[\Omega mm\ m^{-1}]$\\
+	$\rho$: Spezifischer Widerstand $[\Omega~mm~m^{-1}]$\\
 	$U, I, R, P$: Spannung, Strom, Widerstand, Leistung	 }}
 
 \paragraph{Leitungswiderstand}
@@ -51,7 +51,7 @@ $$ u_{SS} = \sqrt{2}\cdot u_{eff.} $$
 
 $$ X_C =  \frac{1}{2 \pi f C} \Longleftrightarrow C =  \frac{1}{2 \pi f X_C} $$
 
-\paragraph{Induktiver Blindwiderstand $L_C$}
+\paragraph{Induktiver Blindwiderstand $X_L$}
 
 $$ X_L =  2 \pi f L \Longleftrightarrow L =  \frac{X_L}{2 \pi f} $$
 
@@ -75,6 +75,39 @@ $$ \widehat{u} = \frac{U_1}{U_2} = \frac{I_2}{I_1} = \sqrt{\frac{R_1}{R_2}} = \s
 Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 
 \section{Schaltungen}
+
+\paragraph{Zusammenschaltung} von R, L, C 
+
+\begin{Figure}
+ \centering
+    \begin{circuitikz}
+      \draw (0,0)
+      to[R=$R$] (0,2)
+      to[short] (2,2)
+      to[C=$C$] (2,0)
+      to[short] (0,0);
+      \draw (2,2)
+      to[short] (4,2)
+      to[L=$L$] (4,0)
+      to[short] (2,0);
+   \end{circuitikz}  
+   \captionof{figure}{R-L-C Parallel}
+\end{Figure}
+
+\begin{Figure}
+ \centering
+    \begin{circuitikz}
+      \draw (0,0)
+      to[short,o-] (1,0)
+      to[R=$R$] (3,0)
+      to[C=$C$] (5,0)
+      to[L=$L$] (7,0)
+      to[short,-o] (8,0);
+   \end{circuitikz}  
+   \captionof{figure}{R-L-C Seriell}
+\end{Figure}
+
+
 \paragraph{Schwingkreis}
 
 Etwas Text
@@ -91,17 +124,6 @@ Etwas Text
       to[short] (4,2)
       to[L=$L$] (4,0)
       to[short] (2,0);
-%        \begin{scope}[xshift=6.5cm, yshift=.5cm]
-%			\draw [->] (-2,0) -- (2.5,0) node[anchor=west] {$v_1/V$};
-%			\draw [->] (0,-2) -- (0,2) node[anchor=west] {$i_1/mA$};
-%			\draw (-1,0) node[anchor=north] {-2} (1,0) node[anchor=south] {2}
-%				(0,1) node[anchor=west] {4} (0,-1) node[anchor=east] {-4}
-%				(2,0) node[anchor=north west] {4}
-%				(-1.5,0) node[anchor=south east] {-3};
-%			\draw [thick] (-2,-1) -- (-1,1) -- (1,-1) -- (2,0) -- (2.5,.5);
-%			\draw [dotted] (-1,1) -- (-1,0) (1,-1) -- (1,0)
-%				(-1,1) -- (0,1) (1,-1) -- (0,-1);
-%		\end{scope}
    \end{circuitikz}  
    \captionof{figure}{Schwingkreis}
 \end{Figure}
@@ -119,17 +141,50 @@ $$ f = \frac{1}{2 \pi \sqrt{L C}} $$
 
 $$ Q = \frac{f_{res}}{b} = \frac{f_o + f_u}{2 (f_o-f_u} = \frac{1}{d} $$
 
-$$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = R_p \cdot \sqrt{C\over L} $$
+$$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_V} = R_p \cdot \sqrt{C\over L} $$
 
-\paragraph{Transistor} Text
+\noindent
+\fbox{\parbox[b][][t]{\columnwidth}{
+	$R_V$: Verlustwiderstand der Spule\\
+	$R_P$: LC-Parallel-Ersatzwiderstand }}
+
+\paragraph{Transistor} Als Wechselstromverstärker
 
 \begin{Figure}
  \centering
   \begin{circuitikz}
-   \draw (0,0) node[npn](npn1) {}
-    (npn1.base) node[anchor=east] {B}
-    (npn1.collector) node[anchor=south] {C}
-    (npn1.emitter) node[anchor=north] {E};
+   \ctikzset{voltage/distance from node=.2}
+   \ctikzset{voltage/distance from line=.02}
+   \ctikzset{voltage/bump b/.initial=.1} % Straight arrows
+
+   \draw (3,3) node[npn](npn1) {}
+    (npn1.base) node[anchor=east,yshift=2mm] {}
+    (npn1.collector) node[anchor=south,xshift=2mm] {}
+    (npn1.emitter) node[anchor=north,xshift=2mm] {};
+   \draw (npn1.collector) to[R=$R_C$] (3,6);
+   \draw (0,0)
+    to[short, o-] (1,0)
+    to[R=$R_2$] (1,3)
+    to[short,i=$I_B$,red] (npn1.base);
+   \draw (0,3)
+    to[C=$C_1$,o-*] (1,3);
+   \draw (1,0)
+    to[short,*-*] (3,0)
+    to[R=$R_E$] (npn1.emitter)
+    to[short,*-] (4,2.2)
+    to[C=$C_E$] (4,0)
+    to[short,*-*] (3,0)
+    to[short,-o] (5,0);
+   \draw (1,3)
+    to[R=$R_2$] (1,6)
+    to[short,-*] (3,6)
+    to[short,-o] (5,6);
+   % Voltage Arrows
+   \draw [blue] (5,6) to[open,v_>=$U_B$] (5,0);
+   \draw [blue] (2,3) to[open,v_>=$U_{BC}$,xshift=2mm] (2,2);
+   \draw [blue] (2,2) to[open,v_>=$U_{RE}$,xshift=2mm] (2,0);
+    % Circled Transistor:
+    \draw ($(npn1)-(0.18,0)$) circle [radius=16pt];
   \end{circuitikz}
   \captionof{figure}{NPN-Transistor}
 \end{Figure}
@@ -141,15 +196,15 @@ $$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = R_p \cdot \sqrt{C\over L} $$
  \centering
   \begin{circuitikz}
    \draw (0,0) node[op amp] (opamp) {}
-   (opamp.-) to [R, l_=$R_1$, *-o] ($(opamp.-)-(2,0)$) node[left]{$V_{in}$}
+   (opamp.-) to [R, l_=$R_1$, *-o] ($(opamp.-)-(2,0)$) node[left]{$U_{in}$}
    (opamp.-) |- ($(opamp.-)+(0.2,1)$) to[R=$R_2$] ($(opamp.-)+(2.2,1)$) -|
-   (opamp.out) to[short,*-] ($(opamp.out)+(.5,0)$) node [right] {$V_{out}$} node [ocirc] {} 
-   (opamp.+) to[short]  ($(opamp.+)-(0,.5)$) node[sground] {}
-  ;
+   (opamp.out) to[short,*-] ($(opamp.out)+(.5,0)$) node [right] {$U_{out}$} node [ocirc] {} 
+   (opamp.+) to[short]  ($(opamp.+)-(0,.5)$) node[sground] {};
   \end{circuitikz}
  \captionof{figure}{Invertierender Verstärker}
 \end{Figure}
 
+$$ V = \frac{R_2}{R_1} = \frac{U_out}{U_in} $$
 
 \end{multicols}
 \end{document}
