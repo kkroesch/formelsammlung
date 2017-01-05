@@ -33,28 +33,31 @@ Es werden die für die Prüfung erforderlichen Formeln aufgeführt.
 	$\rho$: Spezifischer Widerstand $[\Omega~mm~m^{-1}]$\\
 	$U, I, R, P$: Spannung, Strom, Widerstand, Leistung	 }}
 
-\paragraph{Leitungswiderstand}
+\subsection*{Leitungswiderstand}
 
 $$ R = \frac{\rho \cdot l}{A} $$
 
-\paragraph{Ohmsches Gesetz}
+\subsection*{Ohmsches Gesetz}
 
 $$ I = \frac{U}{R} = \frac{P}{U} = \sqrt{P \over R} $$
 $$ R = \frac{U}{I} = \frac{U^2}{P} = \frac{P}{I^2} $$
 $$ U= R \cdot I = \sqrt{P\cdot R} = \frac{P}{I} $$
 
-\paragraph{Wechselstrom} Wechselstromgrößen werden mit Kleinbuchstaben bezeichnet.
+\subsection*{Wechselstrom}
+
 $$ u_{SS} = \sqrt{2}\cdot u_{eff.} $$
 
-\paragraph{Kapazitiver Blindwiderstand $X_C$}
+\subsection*{Kapazitiver Blindwiderstand $X_C$}
 $$ X_C =  \frac{1}{2 \pi f C} \Longleftrightarrow C =  \frac{1}{2 \pi f X_C} $$
 
-\paragraph{Induktiver Blindwiderstand $X_L$}
+\subsection*{Induktiver Blindwiderstand $X_L$}
 $$ X_L =  2 \pi f L \Longleftrightarrow L =  \frac{X_L}{2 \pi f} $$
+
+\vfill \columnbreak
 
 \section{Bauteile}
 
-\paragraph{Spule}
+\subsection*{Spule}
 
 \fbox{\parbox[b][][t]{\columnwidth}{
 	$\tau$: Zeitkonstante \\
@@ -68,9 +71,9 @@ $$ L = \frac{U_L \cdot \Delta t}{\Delta I} $$
 	$L$: Induktivität $[Vs A^{-1}]$			\\	$N$: Windungszahl 					\\	$l$: mittlere Feldlinienlänge $[m]$	\\
 	$A_L$: Spulenkonstante $[Vs A^{-1}]$		\\	$\mu_0$: magnetische Feldkonstante	\\	$\mu_r$: relative Permeabilität}}
 
-\paragraph{Kondensator}
+\subsection*{Kondensator}
 
-\paragraph{Transformator} zur Spannungstransformation, Impedanzanpassung
+\subsection*{Transformator}
 
 \noindent
 \fbox{\parbox[b][][t]{\columnwidth}{
@@ -89,7 +92,7 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 
 \section{Schaltungen}
 
-\paragraph{Zusammenschaltung} von R, L, C 
+\subsection*{Zusammenschaltung von R, L, C}
 
 \begin{Figure}
  \centering
@@ -123,7 +126,7 @@ $$ Z = \sqrt{R^2 + (X_L-X_C)^2} $$
 \end{Figure}
 
 
-\paragraph{Schwingkreis} Resonanzfrequenz
+\subsection*{Schwingkreis}
 
 \begin{Figure}
  \centering
@@ -148,7 +151,6 @@ Bandbreite
 $$ b = \frac{f_{res}}{Q} = \frac{R_v}{2 \pi L} $$
 
 Schwingkreisgüte
-
 $$ Q = \frac{f_{res}}{b} = \frac{f_o + f_u}{2 (f_o-f_u} = \frac{1}{d} $$
 $$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_V} = R_p \cdot \sqrt{C\over L} $$
 
@@ -157,7 +159,7 @@ $$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_V} = R_p \cdot \
 	$R_V$: Verlustwiderstand der Spule\\
 	$R_P$: LC-Parallel-Ersatzwiderstand }}
 
-\paragraph{Transistor} Als Wechselstromverstärker
+\subsection*{Transistor}
 
 Spannungsverstärkung
 $$ \beta = \frac{I_C}{I_B} $$
@@ -205,7 +207,7 @@ $$ R_2 = \frac{U_{BE} + U_{RE}}{I_q} $$
 \end{Figure}
 
 
-\paragraph{Operationsverstärker} Text
+\subsection*{Operationsverstärker}
 
 \begin{Figure}
  \centering
