@@ -15,16 +15,21 @@
   {\par\medskip\noindent\minipage{\linewidth}}
   {\endminipage\par\medskip}
 
-\author{kkroesch}
+\author{HB9/CEPT}
+\date{}
 \title{Formelsammlung}
+\subtitle{f\"ur Amateurfunker}
+
 \begin{document}
 \setlength{\columnsep}{1cm}
 \begin{multicols}{3}
 
+\maketitle
+
 \noindent
 Diese Formelsammlung orientiert sich an dem Prüfungsfragenkatalog des BAKOM;
 die Nummerierung entspricht den Kapiteln im Katalog.
-Es werden die für die Prüfung erforderlichen Formeln aufgeführt.
+Es werden nur die für die Prüfung erforderlichen Formeln aufgeführt.
 
 \section{Elektrizität}
 
@@ -92,6 +97,9 @@ $$ \tau = \frac{L}{R},\ L = U_L \cdot \frac{\Delta I}{\Delta t} $$
 $$ \widehat{u} = \frac{N_1}{N_2} = \frac{U_1}{U_2} = \frac{I_2}{I_1} = \sqrt{\frac{R_1}{R_2}} = \sqrt{\frac{Z_1}{Z_2}}  \Longleftrightarrow Z_1 = Z_2 \cdot \widehat{u}^2 $$
 
 Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
+
+\subsection*{Zenerdiode}
+
 
 \section{Schaltungen}
 
@@ -174,7 +182,7 @@ $$ Z = \sqrt{R^2 + (X_L-X_C)^2} $$
 \end{Figure}
 
 Resonanzfrequenz
-$$ f = \frac{1}{2 \pi \sqrt{L C}} $$
+$$ f = \frac{1}{2 \pi \sqrt{L C}} \Longleftrightarrow C = \frac{1}{(2\pi f_{res})^2 L} $$
 
 Bandbreite
 $$ b = \frac{f_{res}}{Q} = \frac{R_v}{2 \pi L} $$
@@ -250,7 +258,12 @@ $$ R_2 = \frac{U_{BE} + U_{RE}}{I_q} $$
  \captionof{figure}{Invertierender Verstärker}
 \end{Figure}
 
-$$ V = \frac{R_2}{R_1} = \frac{U_out}{U_in} $$
+$$ V = \frac{R_2}{R_1} = \frac{U_{out}}{U_{in}} $$
+
+\subsection*{Bandbreite}
+
+$$ b_{CW} = \frac{5\cdot \text{WPM}}{1.2} $$
+$$ b_{AM} = 2 \cdot f_{NFmax} $$
 
 \end{multicols}
 \end{document}
