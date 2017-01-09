@@ -16,7 +16,7 @@
   {\endminipage\par\medskip}
 
 \author{kkroesch}
-\title{Formelsammlung Digitaltechnik}
+\title{Formelsammlung}
 \begin{document}
 \setlength{\columnsep}{1cm}
 \begin{multicols}{3}
@@ -65,17 +65,12 @@ $$ E = 7 \cdot \frac{\sqrt{P}}{d} $$
 
 \subsection*{Spule}
 
-\fbox{\parbox[b][][t]{\columnwidth}{
-	$\tau$: Zeitkonstante \\
-	$L$: Induktivität}}
-
-$$ \tau = \frac{L}{R} $$
-$$ L = \frac{U_L \cdot \Delta t}{\Delta I} $$
+$$ \tau = \frac{L}{R},\ L = U_L \cdot \frac{\Delta I}{\Delta t} $$
 
 \noindent
 \fbox{\parbox[b][][t]{\columnwidth}{
-	$L$: Induktivität $[Vs A^{-1}]$			\\	$N$: Windungszahl 					\\	$l$: mittlere Feldlinienlänge $[m]$	\\
-	$A_L$: Spulenkonstante $[Vs A^{-1}]$		\\	$\mu_0$: magnetische Feldkonstante	\\	$\mu_r$: relative Permeabilität}}
+	$\tau$: Zeitkonstante \\
+	$L$: Induktivität $[Vs A^{-1}]$}}
 
 \subsection*{Kondensator}
 
@@ -110,19 +105,17 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
       to[short,o-] (1,0)
       to[R=$R_2$,-*] (1,3)
       to[R=$R_1$] (1,6)
-      to[short,-o] (0,6);
+      to[short,-o,i<=$I$] (0,6);
       \draw (1,3)
       to[short,-o] (2,3);
       
-      \draw [blue] (3,6)
-      to[open,v=$U_1$] (3,3)
-      to[open,v=$U_2$] (3,0);
+      \draw [blue] (2,6)
+      to[open,v^=$U_1\rightarrow R_1\cdot I$] (2,3)
+      to[open,v^=$U_2\rightarrow R_2\cdot I$] (2,0);
+      \draw (0,6) [blue] to[open,v=$U_{ges.}$] (0,0);
    \end{circuitikz}  
    \captionof{figure}{Spannungsteiler}
 \end{Figure}
-
-$$ U_{ges} = U_1 + U_2 $$
-$$ \frac{U_1}{U_2} = \frac{R_1}{R_2} $$
 
 \subsection*{Stromteiler}
 
