@@ -58,8 +58,8 @@ $$ X_L = 2 \pi f L $$
 
 \subsection*{Dämpfung d / Verstärkung a}
 
-$$ P_2 = P_1 \cdot 10^{a\over 10}, U_2 = U_1 \cdot 10^{a\over 20} $$
-$$ P_2 = P_1 \cdot 10^{-{d\over 10}}, U_2 = U_1 \cdot 10^{-{d\over 20}} $$
+$$ P_2 = P_1 \cdot 10^\frac{a}{10}, U_2 = U_1 \cdot 10^\frac{a}{20} $$
+$$ P_2 = P_1 \cdot 10^{-\frac{a}{10}}, U_2 = U_1 \cdot 10^{-\frac{a}{20}} $$
 
 \subsection*{Feldstärke}
 
@@ -78,7 +78,23 @@ $$ \tau = \frac{L}{R},\ L = U_L \cdot \frac{\Delta I}{\Delta t} $$
 
 \subsection*{Kondensator}
 
-Zeitkonstante $\tau = R\cdot C $
+Zeitkonstante 
+
+$$\tau = R\cdot C $$
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+Laden                   & Entladen \\
+\hline
+$1 \tau \approx 63,2\%$	& $1 \tau \approx 36,8\%$ \\
+$2 \tau \approx 86,5\%$	& $2 \tau \approx 13,5\%$ \\
+$3 \tau \approx 95,0\%$	& $3 \tau \approx 5,0\% $ \\
+$4 \tau \approx 98,2\%$	& $4 \tau \approx 1,8\% $ \\
+$5 \tau \approx 99,3\%$	& $5 \tau \approx 0,7\% $ \\
+\hline
+\end{tabular}
+\end{center}
 
 \subsection*{Transformator}
 
@@ -243,7 +259,7 @@ $$ V = \frac{R_2}{R_1} = \frac{U_{out}}{U_{in}} $$
  \centering
   \begin{circuitikz}
    \draw (0,0) node[op amp] (opamp) {}
-   (opamp.-) to [short] ($(opamp.-)-(0,1)$)
+   (opamp.-) to [short,*-] ($(opamp.-)-(0,1)$)
    ($(opamp.-)-(0,1)$) to[R,R=$R_1$] ($(opamp.-)-(0,3)$) node[sground] {}
    (opamp.-) |- ($(opamp.-)+(0.2,1)$) to[R=$R_2$] ($(opamp.-)+(2.2,1)$) -|
    (opamp.out) to[short,*-] ($(opamp.out)+(.5,0)$) node [right] {$U_{out}$} node [ocirc] {} 
