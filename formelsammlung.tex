@@ -31,7 +31,8 @@
 \noindent
 \fbox{\parbox[b][][t]{\columnwidth}{
 	$\rho$: Spezifischer Widerstand $[\Omega~mm~m^{-1}]$\\
-	$U, I, R, P$: Spannung, Strom, Widerstand, Leistung	 }}
+	$U, I, R, P$: Spannung, Strom, Widerstand, Leistung	\\
+	$E$: Feldst\"arke $[Vm^{-1}]$ }}
 
 \subsection*{Leitungswiderstand}
 
@@ -77,8 +78,6 @@ $$ \tau = \frac{L}{R},\ L = U_L \cdot \frac{\Delta I}{\Delta t} $$
 	$L$: Induktivität $[Vs A^{-1}]$}}
 
 \subsection*{Kondensator}
-
-Zeitkonstante 
 
 $$\tau = R\cdot C $$
 
@@ -134,11 +133,17 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 
 \subsection*{Reihen- und Parallelschaltung}
 
-\begin{align*}
-R_{ser} =& R_{1} + \cdots + R_{n} \qquad \frac{1}{R_{par}} =& \frac{1}{R_{1}} + \cdots + \frac{1}{R_{n}} \\
-\frac{1}{C_{ser}} =& \frac{1}{C_{1}} + \cdots + \frac{1}{C_{n}} \qquad C_{par} =& C_{1} + \cdots + C_{n} \\
-L_{ser} =& L_{1} + \cdots + L_{n} \qquad \frac{1}{L_{par}} =& \frac{1}{L_{1}} + \cdots + \frac{1}{L_{n}}
-\end{align*}
+\noindent
+\parbox[b][8em][t]{.48\columnwidth}{Reihenschaltung\\
+$$R_{ges} = R_{1} + \cdots + R_{n}$$
+$$\frac{1}{C_{ges}} = \frac{1}{C_{1}} + \cdots + \frac{1}{C_{n}}$$
+$$L_{ges} = L_{1} + \cdots + L_{n}$$
+}
+\parbox[b][8em][t]{.48\columnwidth}{Parallelschaltung\\
+$$\frac{1}{R_{ges}} = \frac{1}{R_{1}} + \cdots + \frac{1}{R_{n}}$$
+$$C_{ges} = C_{1} + \cdots + C_{n}$$
+$${L_{ges}} = \frac{1}{L_{1}} + \cdots + \frac{1}{L_{n}}$$
+}
 
 \subsection*{Schwingkreis}
 
