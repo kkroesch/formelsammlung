@@ -54,10 +54,10 @@ $$ P = U \cdot I = R \cdot I^2 = \frac{U^2}{R} $$
 $$ u_{SS} = \sqrt{2}\cdot u_{eff.} $$
 
 \subsection*{Kapazitiver Blindwiderstand $X_C$}
-$$ X_C = \frac{1}{2 \pi f C} \Longleftrightarrow C =  \frac{1}{2 \pi f X_C} $$
+$$ X_C = \frac{1}{2 \pi f C} $$
 
 \subsection*{Induktiver Blindwiderstand $X_L$}
-$$ X_L = 2 \pi f L \Longleftrightarrow L =  \frac{X_L}{2 \pi f} $$
+$$ X_L = 2 \pi f L $$
 
 \subsection*{Dämpfung d / Verstärkung a}
 
@@ -83,17 +83,10 @@ $$ \tau = \frac{L}{R},\ L = U_L \cdot \frac{\Delta I}{\Delta t} $$
 
 \subsection*{Transformator}
 
-\noindent
 \fbox{\parbox[b][][t]{\columnwidth}{
 	$N$: Windungszahl \\
 	$\widehat u$: Übersetzungsverhältnis}}
 
-\begin{Figure}
-  \begin{circuitikz}
-	\draw		(0,0) node[transformer core] (T) {}		(T.A1) node[anchor=east] {A1}		(T.A2) node[anchor=east] {A2}		(T.B1) node[anchor=west] {B1}		(T.B2) node[anchor=west] {B2}		(T.base) node{K};
-  \end{circuitikz}
-\end{Figure}
-	
 $$ \widehat{u} = \frac{N_1}{N_2} = \frac{U_1}{U_2} = \frac{I_2}{I_1} = \sqrt{\frac{R_1}{R_2}} = \sqrt{\frac{Z_1}{Z_2}}  \Longleftrightarrow Z_1 = Z_2 \cdot \widehat{u}^2 $$
 
 Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
@@ -129,7 +122,7 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 
 \subsection*{Stromteiler}
 
-\subsection*{R -- L -- C}
+\subsection*{L/C-Kombinationen}
 
 \begin{Figure}
  \centering
@@ -161,7 +154,6 @@ $$ Z = \sqrt{R^2 + (X_L-X_C)^2} $$
    \end{circuitikz}  
    \captionof{figure}{R-L-C Seriell}
 \end{Figure}
-
 
 \subsection*{Schwingkreis}
 
