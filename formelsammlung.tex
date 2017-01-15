@@ -21,7 +21,9 @@
 \subtitle{f\"ur Amateurfunker}
 
 \begin{document}
-\setlength{\columnsep}{1cm}
+
+\setlength{\columnseprule}{.25pt}
+\setlength{\columnsep}{2cm}
 \begin{multicols}{3}
 
 \maketitle
@@ -201,7 +203,7 @@ $$ Z = \sqrt{R^2 + (X_L-X_C)^2} $$
 \end{Figure}
 
 Grenzfrequenz
-$$ f_{grenz} = \frac{1}{2\pi} R C $$
+$$ f_{grenz} = \frac{1}{2\pi\ R\ C} $$
 
 \noindent
 \fbox{\parbox[b][][t]{\columnwidth}{
@@ -212,9 +214,11 @@ $$ f_{grenz} = \frac{1}{2\pi} R C $$
 
 Spannungsverstärkung
 $$ \beta = \frac{I_C}{I_B} $$
-$$ R_C = \frac{U_B - U_{CE} - U_{RE}}{I_C} $$
+$$ I_{E} = I_{C} + I_{E} $$
+%$$ R_C = \frac{U_B - U_{CE} - U_{RE}}{I_C} $$
 $$ R_1 = \frac{U_B - U_{BE} - U_{RE}}{I_q + I_B} $$
 $$ R_2 = \frac{U_{BE} + U_{RE}}{I_q} $$
+$$ P_{V} = U_{CE} \cdot I_{C} $$
 
 \begin{Figure}
  \centering
@@ -270,7 +274,7 @@ $$ R_2 = \frac{U_{BE} + U_{RE}}{I_q} $$
  \captionof{figure}{Invertierender Verstärker}
 \end{Figure}
 
-$$ V = \frac{R_2}{R_1} = \frac{U_{out}}{U_{in}} $$
+$$ V = - \frac{R_2}{R_1} = \frac{U_{out}}{U_{in}} $$
 
 \begin{Figure}
  \centering
