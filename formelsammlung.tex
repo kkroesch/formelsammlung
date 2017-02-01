@@ -89,7 +89,8 @@ $$ \tau = \frac{L}{R},\ L = U_L \cdot \frac{\Delta I}{\Delta t} $$
 \noindent
 \fbox{\parbox[b][][t]{\columnwidth}{
 	$\tau$: Zeitkonstante \\
-	$L$: Induktivität $[Vs A^{-1}]$}}
+	$L$: Induktivität $[Vs A^{-1}]$
+}}
 
 \subsection*{Kondensator}
 
@@ -108,6 +109,11 @@ $5 \tau \approx 99,3\%$	& $5 \tau \approx 0,7\% $ \\
 \hline
 \end{tabular}
 \end{center}
+
+\subsection*{Drehkondensator}
+mit Parallelkapazität $C_{par}$
+
+$$ f_{min}^2\cdot (C_{max}+C_{par}) = f_{max}^2\cdot (C_{min}+C_{par}) $$
 
 \subsection*{Transformator}
 
@@ -202,8 +208,8 @@ $$ f_{grenz} = \frac{1}{2\pi\ R\ C} $$
 
 Spannungsverstärkung
 $$ \beta = \frac{I_C}{I_B} $$
-$$ I_{E} = I_{C} + I_{E} $$
-%$$ R_C = \frac{U_B - U_{CE} - U_{RE}}{I_C} $$
+$$ I_{E} = I_{C} + I_{B} $$
+$$ R_C = \frac{U_B - U_{CE} - U_{RE}}{I_C} $$
 $$ R_1 = \frac{U_B - U_{BE} - U_{RE}}{I_q + I_B} $$
 $$ R_2 = \frac{U_{BE} + U_{RE}}{I_q} $$
 $$ P_{V} = U_{CE} \cdot I_{C} $$
