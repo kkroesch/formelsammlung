@@ -39,14 +39,24 @@
 	$E$: Feldst\"arke $[Vm^{-1}]$ }}
 
 \subsection*{Leitungswiderstand}
+Der ohmsche Widerstand eines Körpers lässt sich aus seinen geometrischen Abmessungen und einer materialspezifischen Konstante -- dem spezifischen Widerstand $\rho$ -- berechnen.
 
+Für einen in Längsrichtung durchflossenen geraden Leiter mit konstanter Querschnittsfläche \textit{A} und der Länge \textit{l} gilt:
 $$ R = \frac{\rho \cdot l}{A} $$
 
+\fcolorbox{red}{red!10}{\parbox[b][][t]{\columnwidth}{
+\textsf{\textcolor{red}{Rechenbeispiel}}
+Ein Netzteil hat eine Ausgangsspannung von 13.8~V bei einem Laststrom von 20~A. Die Speisung des Verbrauchers erfolgt über ein 3.5~m langes Kabel mit einem Leiterquerschnitt von $6~\textrm{mm}^2$.
+Der spezifische Widerstand von Kupfer ist $0.0175\frac{\Omega \textrm{mm}^2}{\textrm{m}}$. Wie gross ist die Spannung am Verbraucher?
+$$ R = 0.0175 \cdot 2 \cdot 3.5~m \div 6~mm^2 = 0.0204~\Omega $$
+}}
+
 \subsection*{Ohmsches Gesetz}
+Der als Quotient aus Spannung und Stromstärke definierte elektrische Widerstand ist konstant, also unabhängig von Spannung und Stromstärke.
 
 \begin{align*}
-I =& \frac{U}{R} = \frac{P}{U} = \sqrt{P \over R} \\
 R =& \frac{U}{I} = \frac{U^2}{P} = \frac{P}{I^2} \\
+I =& \frac{U}{R} = \frac{P}{U} = \sqrt{P \over R} \\
 U =& R \cdot I = \sqrt{P\cdot R} = \frac{P}{I} \\
 P =& U \cdot I = R \cdot I^2 = \frac{U^2}{R}
 \end{align*}
@@ -56,7 +66,7 @@ P =& U \cdot I = R \cdot I^2 = \frac{U^2}{R}
 
 An welche Spannung darf ein $470\Omega$-Widerstand mit $\rfrac{1}{4}$W angeschlossen werden?
 
-$$ U = \sqrt{470\Omega \cdot .25\mathrm{W}} = 10.84 \mathrm{V}$$
+$$ U = \sqrt{470~\Omega \cdot 0.25~W} = 10.84~V$$
 }}
 
 \subsection*{Wechselstrom}
@@ -138,6 +148,7 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 \section{Schaltungen}
 
 \subsection*{Spannungsteiler}
+Der Spannungsteiler wird im Standardfall beschrieben durch die Reihenschaltung von zwei ohmschen Widerständen.
 
 \begin{Figure}
  \centering
@@ -162,7 +173,6 @@ Wirkungsgrad $ \eta = \frac{P _2}{P_1} 100\% $
 \end{Figure}
 
 \subsection*{Reihen- und Parallelschaltung}
-
 \noindent
 \parbox[b][8em][t]{.5\columnwidth}{Reihenschaltung\\
 $$R_{ges} = R_{1} + \cdots + R_{n}$$
@@ -176,6 +186,9 @@ $${L_{ges}} = \frac{1}{L_{1}} + \cdots + \frac{1}{L_{n}}$$
 }
 
 \subsection*{Schwingkreis}
+Im idealen Schwingkreis sind im Resonanzfall die Blindwiderstände von \textit{L} und \textit{C} gleich groß. Die Resonantfrequenz errechnet sich mit der Thomsonschen Formel.
+
+$$ f = \frac{1}{2 \pi \sqrt{L C}} \Longleftrightarrow C = \frac{1}{(2\pi f_{res})^2 L} $$
 
 \begin{Figure}
  \centering
@@ -193,15 +206,12 @@ $${L_{ges}} = \frac{1}{L_{1}} + \cdots + \frac{1}{L_{n}}$$
    \captionof{figure}{Schwingkreis}
 \end{Figure}
 
-Resonanzfrequenz
-$$ f = \frac{1}{2 \pi \sqrt{L C}} \Longleftrightarrow C = \frac{1}{(2\pi f_{res})^2 L} $$
-
 Bandbreite
 $$ b = \frac{f_{res}}{Q} = \frac{R_v}{2 \pi L} $$
 
 Schwingkreisgüte
 $$ Q = \frac{f_{res}}{b} = \frac{f_o + f_u}{2 (f_o-f_u} = \frac{1}{d} $$
-$$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_V} = R_p \cdot \sqrt{C\over L} $$
+$$ Q = \frac{Z_{res}}{X_L} = \frac{Z_{res}}{X_C} = \frac{X_L}{R_L} = R_p \cdot \sqrt{C\over L} $$
 
 Impedanz
 $$ Z = \sqrt{R^2 + (X_L-X_C)^2} $$
@@ -209,10 +219,19 @@ $$ Z = \sqrt{R^2 + (X_L-X_C)^2} $$
 Grenzfrequenz bei RC-Kombination
 $$ f_{grenz} = \frac{1}{2\pi\ R\ C} $$
 
-\noindent
-\fbox{\parbox[b][][t]{\columnwidth}{
-	$R_V$: Verlustwiderstand der Spule\\
-	$R_P$: LC-Parallel-Ersatzwiderstand }}
+\fcolorbox{red}{red!10}{\parbox[b][][t]{\columnwidth}{
+\textsf{\textcolor{red}{Rechenbeispiel}}
+
+Die Schaltung aus Abbildung~2 arbeitet in Resonanz. Die Impedanz Z beträgt 
+$50~\Omega,\quad U=3~V,\quad C=70~pF,\quad L=60\mu H$.Wie groß ist die Spannung über dem Kondensator?
+
+Zunächst wird die Resonanzfrequenz ermittelt:
+$$ f_0 = \frac{1}{2\pi \cdot \sqrt{60\cdot 10^{-6}H \cdot 70\cdot 10^{-12}F}} = 2.46~\textrm{MHz} $$
+Der Strom ergibt sich aus
+$$ I=\frac{3~V}{50~\Omega} = 60~mA$$
+Die Spannung über dem Kondensator ist also
+$$ U = \frac{0.06~A}{2 \pi \cdot 2.46\cdot 10^6~\textrm{Hz} \cdot 70 \cdot 10^{-12}~\textrm{F}} = 55.5~V $$
+}}
 
 \subsection*{Transistor}
 
