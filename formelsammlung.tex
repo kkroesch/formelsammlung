@@ -11,6 +11,8 @@
 
 \usepackage[font=small,format=plain,labelfont=bf,up,labelsep=endash,textfont=it,up]{caption}
 
+\newcommand*\rfrac[2]{{}^{#1}\!/\!_{#2}} %running fraction with slash - requires math mode.
+
 \newenvironment{Figure}
   {\par\medskip\noindent\minipage{\linewidth}}
   {\endminipage\par\medskip}
@@ -18,7 +20,7 @@
 \author{HB9/CEPT}
 \date{}
 \title{Formelsammlung}
-\subtitle{f\"ur den Funkamateur}
+\subtitle{für den Funkamateur}
 
 \begin{document}
 
@@ -48,6 +50,14 @@ R =& \frac{U}{I} = \frac{U^2}{P} = \frac{P}{I^2} \\
 U =& R \cdot I = \sqrt{P\cdot R} = \frac{P}{I} \\
 P =& U \cdot I = R \cdot I^2 = \frac{U^2}{R}
 \end{align*}
+
+\fcolorbox{red}{red!10}{\parbox[b][][t]{\columnwidth}{
+\textsf{\textcolor{red}{Rechenbeispiel}}
+
+An welche Spannung darf ein $470\Omega$-Widerstand mit $\rfrac{1}{4}$W angeschlossen werden?
+
+$$ U = \sqrt{470\Omega \cdot .25\mathrm{W}} = 10.84 \mathrm{V}$$
+}}
 
 \subsection*{Wechselstrom}
 
